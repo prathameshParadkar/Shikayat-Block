@@ -1,0 +1,18 @@
+{
+  "signup.title": "Sign Up",
+  "signup.description": "Please enter your email and password.",
+  "name": "Name",
+  "email": "Email Address",
+  "password": "Password",
+  "userRole": "User Role",
+  "signup.button": "Sign Up",
+  "signup.alreadyUser": "Already a user?",
+
+  "signin.title": "Sign In",
+  "signin.description": "Please enter your email and password.",
+  "signin.button": "Sign In",
+  "signin.newUser": "New user?",
+  "signup.studentRole": "Student",
+  "signup.instructorRole": "Instructor",
+  "signup.selectRole": "Select a role"
+}

@@ -1,0 +1,18 @@
+{
+  "signup.title": "साइन अप करें",
+  "signup.description": "कृपया आपका ईमेल और पासवर्ड दर्ज करें।",
+  "name": "नाम",
+  "email": "ईमेल पता",
+  "password": "पासवर्ड",
+  "userRole": "उपयोगकर्ता भूमिका",
+  "signup.button": "साइन अप करें",
+  "signup.alreadyUser": "पहले से ही उपयोगकर्ता है?",
+
+  "signin.title": "साइन इन करें",
+  "signin.description": "कृपया आपका ईमेल और पासवर्ड दर्ज करें।",
+  "signin.button": "साइन इन करें",
+  "signin.newUser": "नया उपयोगकर्ता?",
+  "signup.studentRole": "छात्र",
+  "signup.instructorRole": "शिक्षक",
+  "signup.selectRole": "भूमिका का चयन करें"
+}

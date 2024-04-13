@@ -1,0 +1,24 @@
+{
+  "name": "blockchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "preprocess": "npx hardhat run --network sepolia scripts/deploy.js --show-stack-traces"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.1",
+    "aaxios": "^0.18.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "ethers": "^5.4",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "hardhat": "^2.19.5",
+    "path": "^0.12.7"
+  }
+}

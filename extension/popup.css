@@ -1,0 +1,107 @@
+
+body{
+  height: 500px;
+  width: 300px;
+  margin: 0;
+  padding: 0;
+  background-color: #090029;
+}
+
+.Nazar-logo{
+  width: 150px;
+  height: 25px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 30px;
+}
+.main-view{
+
+  width: 100%;
+  height: 100%;
+  
+}
+.submit-for-check{
+  width: 100px;
+  height: 30px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 270px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.submit-for-check:hover{
+  background-color: #ffffff;
+  color: #090029;
+}
+
+.Nazar-description{
+  position: absolute;
+  width: 250px;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Nazar-description h2{
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.Nazar-description p{
+  text-align: center;
+  font-size: 17px;
+}
+
+.footer{
+  position: absolute;;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.footer a{
+  text-decoration: underline;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add these styles to your popup.css */
+.risk-container {
+  position: absolute;
+  width: 80vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.risk-message,
+.risk-score {
+  color: #FFF;
+  font-size: large;
+  margin-bottom: 10px;
+}

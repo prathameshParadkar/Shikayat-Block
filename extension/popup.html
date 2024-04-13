@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="./animation/animation.css">
+    <link rel="stylesheet" href="./input/input.css">
+    <link rel="stylesheet" href="./global.css">
+
+</head>
+<body>
+    <div style="z-index: 20;position: relative;pointer-events: none;" class="main-view">
+        <img class="Nazar-logo" style="pointer-events: all;"  src="./images/nazar.png" alt="Nazar Logo">
+        <div class="Nazar-description" style="pointer-events: all;">
+            <h2>Welcome back!!!</h2>
+            <p>Check external wallet addresses and secure your transactions</p>
+        </div>
+        <div class="remove-div">
+            <div class="form__group field" style="pointer-events: all;">
+                <input type="input" class="form__field" placeholder="Name" required="">
+                <label for="name" class="form__label">Enter an address</label>
+            </div>
+            <button class="submit-for-check" style="pointer-events: all;">
+                Check
+            </button>
+        </div>
+        <div class="risk-container">
+            <div style="display: absolute; top: 50px;" class="risk-message"></div>
+            <div style="display: absolute; top: 50px;" class="risk-score"></div>
+        </div>
+            
+        <div class="footer" style="pointer-events: all;" >
+            Need help? <a href="/">Check our main page</a>
+        </div>
+
+    </div>
+
+    <!-- Placeholder for displaying risk score -->
+    <div class="background-animation">
+        <canvas id="nokey" width="800" height="800">
+            Your Browser Don't Support Canvas, Please Download Chrome ^_^``
+        </canvas>
+    </div>
+    <script src="popup.js" defer></script>
+    <script src="./animation/animation.js"></script>
+</body>
+</html>
