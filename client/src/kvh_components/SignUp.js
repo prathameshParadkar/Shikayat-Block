@@ -31,9 +31,9 @@ const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),
-  // Phone_Number: Yup.number()
-  //   .required("Phone_Number is required")
-  //   .positive("Phone_Number must be a positive number"),
+  // phone: Yup.number()
+  //   .required("phone is required")
+  //   .positive("phone must be a positive number"),
   password: Yup.string().required("Password is required"),
   // .min(6, "Password must be at least 6 characters long"),
   userRole: Yup.string().required("User Role is required"),
@@ -55,7 +55,8 @@ export default function SignupCardOg() {
       user_role: values.userRole,
       name: values.name,
       email: values.email,
-      // Phone_Number: values.Phone_Number,
+      phone: values.phone,
+      // phone: values.phone,
       password: values.password,
       // teamid: "-999",
       // teamname: "-999",
@@ -121,7 +122,7 @@ export default function SignupCardOg() {
             initialValues={{
               name: "",
               email: "",
-              Phone_Number: "",
+              phone: "",
               password: "",
               userRole: "",
             }}
@@ -159,15 +160,19 @@ export default function SignupCardOg() {
                     />
                   </FormControl>
 
-                  {/* <FormControl
-                    id="Phone_Number"
+                  <FormControl
+                    id="phone"
                     isRequired
-                    isInvalid={errors.Phone_Number && touched.Phone_Number}
+                    isInvalid={errors.phone && touched.phone}
                   >
-                    <FormLabel>Phone_Number</FormLabel>
-                    <Field name="Phone_Number" as={Input} type="number" />
-                    <ErrorMessage name="Phone_Number" component={Text} color="red.500" />
-                  </FormControl> */}
+                    <FormLabel>Phone Number</FormLabel>
+                    <Field name="phone" as={Input} type="number" />
+                    <ErrorMessage
+                      name="phone"
+                      component={Text}
+                      color="red.500"
+                    />
+                  </FormControl>
                   <FormControl
                     id="password"
                     isRequired
@@ -208,7 +213,7 @@ export default function SignupCardOg() {
                     <FormLabel>{t("userRole")}</FormLabel>
                     <Field name="userRole" as={Select}>
                       <option value="">{t("signup.selectRole")}</option>
-                      <option value="investigator">{"Investigator"}</option>
+                      <option value="authority">{"Authority"}</option>
                       <option value="citizen">{"Citizen"}</option>
                     </Field>
                     <ErrorMessage

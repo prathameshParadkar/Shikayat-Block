@@ -71,7 +71,7 @@ def get_priority_of_the_complaint(complaint_description):
     return response.result
 
 
-isDM = False
+isDM = True
 
 if __name__ == "__main__":
     import sys

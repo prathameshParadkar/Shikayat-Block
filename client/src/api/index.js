@@ -1,10 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({
-  // baseURL: "https://kvh.serveo.net",
-  // baseURL: "https://cf6f-103-120-31-178.ngrok-free.app"
-  // baseURL: "https://ee7a-103-120-31-178.ngrok-free.app",
-  // baseURL: "https://ee7a-103-120-31-178.ngrok-free.app"
+const API = axios.create({ 
   baseURL: "http://localhost:5000",
 });
 
@@ -126,6 +122,40 @@ class APIRequests {
     };
     console.log("body", body);
     return await API.post("/api/complaint/get_authority", body);
+  };
+
+  // get_complaints
+  static getComplaints = async () => {
+    return await API.get("/api/complaint/get_complaints");
+  };
+
+  // /get_complaints/:id
+  static getComplaint = async (id) => {
+    return await API.get(`/api/complaint/get_complaints/${id}`);
+  };
+
+  // updateComplaint
+  static updateComplaint = async (id, data) => {
+    const fdata = {
+      userId: data.user_id,
+      subject: data.complaint_title,
+      description: data.complaint_description,
+      complaintType: data.complaint_type,
+      ipfs: data.file_url,
+      status: data.remark,
+      // statusType: data.status_type,
+      statusType: data.selectedOption,
+      authorityName: data.reporting_agency,
+      priority: data.priority,
+      // agency_response: data.remark,
+    };
+
+    console.log("fdata", fdata);
+    // return await API.post(`/api/complaint/update_complaint/${id}`, data);
+    return await axios.put(
+      `http://localhost:8080/blockchain/updateToAComplaints/${id}`,
+      fdata
+    );
   };
 }
 

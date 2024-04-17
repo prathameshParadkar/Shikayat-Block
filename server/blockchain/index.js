@@ -1,7 +1,11 @@
 const express = require("express");
+const cors = require("cors");
+
 const bodyParser = require("body-parser");
 const app = express();
 const blockchainRouter = require("./router/blockchain");
+app.use(cors());
+
 app.use(bodyParser.json());
 
 const port = 8080;

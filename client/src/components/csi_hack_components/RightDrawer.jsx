@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 
-const RightDrawer = ({ data: timeline, isOpen, onClose }) => {
+const RightDrawer = ({ data: timeline, isOpen, onClose, handleUpdate }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const [remark, setRemark] = useState("");
   const handleOptionChange = (option) => {
@@ -21,6 +21,12 @@ const RightDrawer = ({ data: timeline, isOpen, onClose }) => {
 
   const onSubmit = () => {
     console.log(selectedOption, remark);
+    onClose();
+
+    handleUpdate(selectedOption, remark).then(() => {
+      onClose();
+    });
+    // here make an update
   };
 
   return (
@@ -102,7 +108,8 @@ const RightDrawer = ({ data: timeline, isOpen, onClose }) => {
                     htmlFor="warn"
                     className="block w-full h-full py-2 text-center text-white font-semibold"
                   >
-                    Warn
+                    {/* Warn */}
+                    Info
                   </label>
                 </div>
                 <div

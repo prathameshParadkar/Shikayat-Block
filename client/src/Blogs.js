@@ -3,8 +3,34 @@ import Blog from "./components/blog/blog.js";
 // import blog3 from "./assets/blog3.png";
 import blog2 from "./assets/blog3.jpeg";
 import blog3 from "./assets/blog1.jpeg";
+
+import img_1 from "./assets/img_1.jpg";
+import img_2 from "./assets/img_2.jpg";
+
 import Trust from "./components/canITrust/canITrust.js";
 // import AddBlog from "../components/AddBlog";
+
+const blogs = [
+  {
+    heading:
+      "Empowering Individuals: The Importance of Raising Awareness about Lodging Complaints Against Malpractices",
+
+    Description: `This article focuses on the significance of educating individuals about the process of lodging complaints against malpractices. It highlights the importance of empowering individuals to speak up against various forms of misconduct, such as corruption, fraud, discrimination, and unethical behavior. The article emphasizes the role of awareness campaigns, educational programs, and accessible complaint mechanisms in fostering accountability and transparency in both public and private sectors. 
+  How Web3 is shaping it: Web3 technology plays a crucial role in democratizing access to information and communication channels. Blockchain-based platforms and decentralized applications (DApps) provide secure and transparent mechanisms for lodging complaints and documenting malpractices. Smart contracts enable automated governance processes, ensuring that complaints are addressed fairly and transparently. Moreover, blockchain-based identity solutions enhance trust and authenticity in complaint submissions, thereby encouraging more individuals to report malpractices without fear of reprisal.`,
+    img: img_1,
+  },
+
+  {
+    img: img_2,
+    heading:
+      "Building a Culture of Accountability: Strategies for Encouraging Complaint Reporting Against Malpractices",
+
+    Description: `This article explores various strategies for fostering a culture of accountability and encouraging individuals to report malpractices through formal complaint mechanisms. It discusses the importance of creating safe environments where whistleblowers feel supported and protected. The article examines best practices for designing complaint systems that are accessible, confidential, and responsive to the needs of complainants. Additionally, it explores the role of leadership, organizational culture, and public awareness campaigns in promoting ethical behavior and discouraging misconduct.
+  
+  How Web3 is shaping it: Web3 technologies offer innovative solutions for enhancing accountability and transparency in complaint reporting processes. Decentralized platforms powered by blockchain technology provide immutable records of complaints, ensuring the integrity and transparency of the reporting process. Smart contract-based incentive mechanisms can incentivize individuals to report malpractices by rewarding them with tokens or other forms of digital assets. Furthermore, decentralized governance models enable community-driven oversight and decision-making, reducing the risk of censorship or manipulation in complaint handling.`,
+  },
+];
+
 const Blogs = () => {
   return (
     <div className="bg-no-repeat bg-cover min-h-screen h-full">
@@ -12,25 +38,16 @@ const Blogs = () => {
         Blogs
       </div> */}
       <div className="">
-        <Blog
-          img={blog3}
-          heading="How to avoid cryptocurrency scams?"
-          text="Always research the cryptocurrency project, team, and technology before investing. Verify team members' credentials and look for legitimate whitepapers and official websites.
-          Trade and buy cryptocurrencies on established and reputable exchanges.
-          Never share private keys, recovery phrases, or personal information with anyone.
-          Stay updated on cryptocurrency news, forums, and scams."
-        />
-        <Blog
-          img={blog2}
-          heading="What should be the next actions if someone is fallen victim to a cryptocurrency scam?"
-          text="Report the scam to local law enforcement or cybercrime units to initiate an official investigation. Inform relevant cryptocurrency exchanges or platforms to prevent further damage. 
-          Alert your bank or credit card issuer about fraudulent transactions to initiate chargebacks and protect your financial accounts. Learn from the experience and educate others to raise 
-          awareness about cryptocurrency scams and prevent future victims."
-        />
-        {/* <AddBlog/> */}
-      </div>
-      <div>
-        <Trust />
+        {blogs.map((blog, index) => {
+          return (
+            <Blog
+              key={index}
+              img={blog.img}
+              heading={blog.heading}
+              text={blog.Description}
+            />
+          );
+        })}
       </div>
     </div>
   );

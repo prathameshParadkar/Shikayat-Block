@@ -9,7 +9,6 @@ contract ComplaintContract {
         string subject; // Subject of the complaint
         string description; // Description of the complaint
         string complaintType; // Description of the complaint
-        // string fileName;
         string ipfsHash; // IPFS hash of the complaint details
         string date;
         string status;
@@ -20,10 +19,13 @@ contract ComplaintContract {
 
     // Mapping to store complaints
     mapping(uint256 => ComplaintContract) public complaints;
-    mapping(string => uint256[]) public complaintsByComplaintType;
-    mapping(string => uint256[]) public complaintsByAuthorityName;
+
     uint256 public complaintCount;
+
+    mapping(string => uint256[]) public complaintsByAuthorityName;
     uint256 public complaintGroupCount;
+
+    mapping(string => uint256[]) public complaintsByComplaintType;
 
     event NewComplaint(
         string userId,
@@ -32,7 +34,6 @@ contract ComplaintContract {
         string subject,
         string description,
         string complaintType,
-        // string fileName,
         string ipfsHash,
         string date,
         string status,
@@ -47,7 +48,6 @@ contract ComplaintContract {
         string memory _subject,
         string memory _description,
         string memory _complaintType,
-        // string memory _fileName,
         string memory _ipfs,
         string memory _status,
         string memory _statusType,
@@ -67,7 +67,6 @@ contract ComplaintContract {
             subject: _subject,
             description: _description,
             complaintType: _complaintType,
-            // fileName: _fileName,
             ipfsHash: _ipfs,
             status: _status,
             date: _date,
@@ -77,7 +76,9 @@ contract ComplaintContract {
         });
 
         complaints[complaintCount] = newComplaint;
+
         complaintsByComplaintType[_complaintType].push(complaintCount);
+
         complaintsByAuthorityName[_authorityName].push(complaintCount);
 
         // Emitting event
@@ -88,7 +89,6 @@ contract ComplaintContract {
             _subject,
             _description,
             _complaintType,
-            // _fileName,
             _ipfs,
             _date,
             _status,
@@ -104,7 +104,6 @@ contract ComplaintContract {
         string memory _subject,
         string memory _description,
         string memory _complaintType,
-        // string memory _fileName,
         string memory _ipfs,
         string memory _status,
         string memory _statusType,
@@ -123,7 +122,6 @@ contract ComplaintContract {
             subject: _subject,
             description: _description,
             complaintType: _complaintType,
-            // fileName: _fileName,
             ipfsHash: _ipfs,
             status: _status,
             date: _date,
@@ -143,7 +141,6 @@ contract ComplaintContract {
             _subject,
             _description,
             _complaintType,
-            // _fileName,
             _ipfs,
             _date,
             _status,
@@ -181,7 +178,6 @@ contract ComplaintContract {
             complaint.subject,
             complaint.description,
             complaint.complaintType,
-            // complaint.fileName,
             complaint.ipfsHash,
             complaint.date,
             complaint.status,
@@ -204,8 +200,8 @@ contract ComplaintContract {
     }
 
     function getComplaintsByAuthorityName(
-        string memory _complaintType
+        string memory _authorityName
     ) public view returns (uint256[] memory) {
-        return complaintsByAuthorityName[_complaintType];
+        return (complaintsByAuthorityName[_authorityName]);
     }
 }

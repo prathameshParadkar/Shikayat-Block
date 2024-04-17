@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   Thead,
@@ -15,6 +15,8 @@ import {
   ChevronRightIcon,
   LocationMarkerIcon,
 } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
+import APIRequests from "../api";
 
 const data = [
   {
@@ -148,10 +150,36 @@ const positions = [
   },
 ];
 
+// fetch user complaints here
 const ComplainsTable = () => {
-  const onButtonClick = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    let active = true;
+
+    APIRequests.getComplaints()
+      .then((res) => {
+        if (active) {
+          console.log("Data: ", res.data);
+          setData(res.data.data);
+        }
+        active = false;
+      })
+      .catch((err) => {
+        console.log("Error in fetching complaints", err);
+        active = false;
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+  const navigate = useNavigate();
+  const onButtonClick = (complaint_id) => {
     console.log(data);
+    navigate(`/admin/complaints/${complaint_id}`);
   };
+
   return (
     <ChakraProvider>
       <Box p={8}>
@@ -159,30 +187,37 @@ const ComplainsTable = () => {
 
         <div className="bg-white shadow overflow-hidden sm:rounded-md">
           <ul role="list" className="divide-y divide-gray-200">
-            {positions.map((position) => (
-              <li key={position.id}>
-                <a href="#" className="block hover:bg-gray-50">
+            {data.map((positions) => {
+              console.log("positions", positions);
+              let position = positions.complaints[0].data;
+
+              if (!position) return null;
+              return (
+                <li key={position.complaint_id}>
+                  {/* <a href="#" className="block hover:bg-gray-50"> */}
                   <div className="px-4 py-4 sm:px-6">
                     <div className="flex justify-between items-center">
                       <div className="flex items-center ">
                         <p className="text-2xl font-medium text-[#0262AF] truncate">
-                          {position.title}
+                          {position.complaint_title}
                         </p>
                         <div className="ml-2 flex-shrink-0 flex">
                           <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            {position.type}
+                            {position.complaint_type}
                           </p>
                         </div>
                       </div>
                       <div className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">
                         {/* <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
-                    <p>
-                      Closing on <time dateTime={position.closeDate}>{position.closeDateFull}</time>
-                    </p> */}
+                      <p>
+                        Closing on <time dateTime={position.closeDate}>{position.closeDateFull}</time>
+                      </p> */}
                         <button
                           type="button"
                           className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                          onClick={onButtonClick}
+                          onClick={() =>
+                            onButtonClick(position.complaint_group_id)
+                          }
                         >
                           View Complaint
                         </button>
@@ -196,21 +231,21 @@ const ComplainsTable = () => {
                             className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                             aria-hidden="true"
                           />
-                          {position.department}
+                          {position.reporting_agency}
                         </p>
                         <p className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
                           <CalendarIcon
                             className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                             aria-hidden="true"
                           />
-                          {position.location}
+                          {position.complaint_created_date}
                         </p>
                       </div>
                     </div>
                   </div>
-                </a>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </Box>

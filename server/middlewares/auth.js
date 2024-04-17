@@ -13,6 +13,7 @@ const auth = (req, res, next) => {
       console.log("user", user);
       req.userID = user.uid;
       req.userPrivilege = user.privilege;
+      req.userRole = user.user_role;
     } else {
       return res.status(401).json({ message: "Unauthorized User" });
     }

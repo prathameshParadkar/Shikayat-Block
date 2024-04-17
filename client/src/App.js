@@ -55,6 +55,7 @@ const App = () => {
           <Route path="/my-complaints" element={<MyComplaints />} />
           <Route path="/admin/complaints" element={<AdminComplaint />} />
           <Route path="/admin/complaints/:complaint_id" element={<AdminInnerComplaint />} />
+          <Route path="/complaints/:complaint_id" element={<AdminInnerComplaint isUser={true} />} />
 
           <Route path="/blogs" element={<Blogs />} />
         </Routes>

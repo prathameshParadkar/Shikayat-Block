@@ -37,6 +37,10 @@ const userSchema = new mongooose.Schema({
     type: Array,
     required: false,
   },
+  complaints: {
+    type: Object,
+    required: false,
+  },
 });
 
 const User = mongooose.model("USER", userSchema);

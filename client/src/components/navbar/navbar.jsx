@@ -12,7 +12,7 @@ import {
   Input,
   InputGroup,
   InputLeftAddon,
-  InputRightElement,
+  InputRightElement, 
   Image,
   Stack,
   IconButton,
@@ -69,7 +69,7 @@ export const regexes = {
 };
 
 const Navbar = () => {
-  const [userRole, setUserRole] = useState("investigator");
+  const [userRole, setUserRole] = useState("authority");
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("profile"));
     console.log("userData in sidebar:", userData);
@@ -126,12 +126,12 @@ const Navbar = () => {
         {/* <h2 className="nazar text-white">NAZAR</h2> */}
         {/* <h2 className= "italic font-bold text-[2rem] text-white"> */}
         {/* <h2 className= "italic font-bold text-[2rem] text-[#0262AF]">
-          NAZAR
+          NAZAR 
         </h2> */}
-        {/* <img src="/nazar-logo.png" alt="Nazar" /> */}
-        <text className="text-[#0262AF] font-bold text-[2rem]">
+        <img src="/nazar-logo.png" alt="Nazar" />
+        {/* <text className="text-[#0262AF] font-bold text-[2rem]">
           ComplaiChain
-        </text>
+        </text> */}
       </div>
       {/* <div className="search-bar"> */}
       <div className="flex justify-center">

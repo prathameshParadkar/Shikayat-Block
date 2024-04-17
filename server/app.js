@@ -6,6 +6,7 @@ const { Server: WebSocketServer } = require("ws");
 const app = express();
 const server = require("http").createServer(app);
 const wsServer = new WebSocketServer({ server });
+// const user = require("./models/UserSchema");
 const auth = require("./middlewares/auth");
 // const {}
 
